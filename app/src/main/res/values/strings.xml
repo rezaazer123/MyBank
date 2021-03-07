@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MyBank</string>
-    <string name="btn_reset_id">Reset</string>
-    <string name="btn_login_id">Login</string>
-    <string name="txt_login_id">User ID</string>
-    <string name="btn_refresh">Refresh</string>
-</resources>
