@@ -10,10 +10,13 @@ import android.widget.*
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import com.netguru.kissme.Kissme
+import io.michaelrocks.paranoid.Obfuscate
 import org.json.JSONException
 import org.json.JSONObject
 
+@Obfuscate
 class AccountsActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accounts)
@@ -151,6 +154,7 @@ class AccountsActivity : AppCompatActivity() {
         return false
     }
 
+    @Obfuscate
     class Account (
         var id: String = "",
         var accountName: String = "",

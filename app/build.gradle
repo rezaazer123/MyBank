@@ -42,3 +42,16 @@ dependencies {
     implementation 'com.netguru.kissme:android:0.2.5'
 }
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'io.michaelrocks:paranoid-gradle-plugin:0.3.2'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'io.michaelrocks.paranoid'
+
