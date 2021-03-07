@@ -11,8 +11,9 @@ import androidx.core.text.set
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result;
 import com.netguru.kissme.Kissme
+import io.michaelrocks.paranoid.Obfuscate
 
-
+@Obfuscate
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,9 +41,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_login_id.setOnClickListener {
-            storage.putString(key = "id", value = txt_login_id.text.toString())
-            val intent = Intent(this, AccountsActivity::class.java)
-            startActivity(intent)
+            if(txt_login_id.text.toString() != ""){
+                if (txt_login_id.text.toString() == storage.getString(key = "id", defaultValue = "none")){
+                    val intent = Intent(this, AccountsActivity::class.java)
+                    startActivity(intent)
+                }
+                else if(!storage.contains(key = "id") || storage.getString(key = "id", defaultValue = "") == "none"){
+                    storage.putString(key = "id", value = txt_login_id.text.toString())
+                    val intent = Intent(this, AccountsActivity::class.java)
+                    startActivity(intent)
+                }
+                else {
+                    Toast.makeText(this@MainActivity, "Wrong id", Toast.LENGTH_LONG).show()
+                }
+            }
+            else {
+                Toast.makeText(this@MainActivity, "Enter id", Toast.LENGTH_LONG).show()
+            }
+
+
+
         }
 
     }
